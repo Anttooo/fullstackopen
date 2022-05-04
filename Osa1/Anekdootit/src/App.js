@@ -21,9 +21,6 @@ const App = () => {
   const [maxVotes, setMaxVotes] = useState(0)
 
   const updateMostVoted = (props) => {
-    console.log("max votes", maxVotes)
-    console.log("votes current", votes[selected])
-    console.log("mostVoted", mostVoted)
     if (votes[selected] > maxVotes) {
       setMostVoted(selected)
       setMaxVotes(votes[selected])
@@ -37,6 +34,7 @@ const App = () => {
 
   const addVote = () => {
     setVotes({...votes, [selected]: votes[selected] + 1} );
+    // Most voted anecdote is checked after every vote and updated with updateMostVoted if needed.
     updateMostVoted();
   }
 
